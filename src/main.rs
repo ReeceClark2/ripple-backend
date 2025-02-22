@@ -88,13 +88,12 @@ async fn handle_request(body: Bytes) -> Result<impl Reply, Rejection> {
     ))
 }
 
-
 #[tokio::main]
 async fn main() {
     let cors = warp::cors()
-    .allow_any_origin()
-    .allow_header("content-type")
-    .allow_methods(vec!["POST"]);
+        .allow_origin("https://ReeceClark2.github.io") // Allow your frontend
+        .allow_header("content-type")
+        .allow_methods(vec!["POST"]);
 
     let route = warp::post()
         .and(warp::path("update"))
@@ -102,6 +101,6 @@ async fn main() {
         .and_then(handle_request)
         .with(cors);
 
-    println!("Server running on http://127.0.0.1:3000");
-    warp::serve(route).run(([127, 0, 0, 1], 3000)).await;
+    println!("Server running on 0.0.0.0:3000");
+    warp::serve(route).run(([0, 0, 0, 0], 3000)).await; // Bind to all interfaces
 }
