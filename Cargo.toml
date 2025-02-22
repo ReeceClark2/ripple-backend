@@ -1,0 +1,13 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+warp = "0.3"             # Lightweight and async web framework
+tokio = { version = "1", features = ["full"] }  # Async runtime
+bytes = "1.5"            # For handling raw binary data
+serde = { version = "1.0", features = ["derive"] }  # Serialization/Deserialization
+serde_json = "1.0"       # JSON handling
+
+
