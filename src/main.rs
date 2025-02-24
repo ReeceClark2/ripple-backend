@@ -91,7 +91,7 @@ async fn handle_request(body: Bytes) -> Result<impl Reply, Rejection> {
 #[tokio::main]
 async fn main() {
     let cors = warp::cors()
-        .allow_origin("https://ReeceClark2.github.io") // Allow your frontend
+        .allow_origin("https://ripple-8edg.onrender.com") // Allow your frontend
         .allow_header("content-type")
         .allow_methods(vec!["POST"]);
 
